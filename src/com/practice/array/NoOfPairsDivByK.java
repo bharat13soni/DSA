@@ -1,4 +1,4 @@
-package com.practice;
+package com.practice.array;
 
 public class NoOfPairsDivByK {
     public static void main(String[] args) {
