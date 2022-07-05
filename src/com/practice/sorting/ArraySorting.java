@@ -50,6 +50,30 @@ public class ArraySorting {
         }
     }
 
+    /*
+    Optimized Implementation of Bubble Sort:
+    The above function always runs O(n^2) time even if the array is sorted.
+    It can be optimized by stopping the algorithm if the inner loop did not cause any swap.
+     */
+    public static void bubbleSortOptimized(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j + 1, j);
+                    swapped = true;
+                }
+            }
+
+            // IF no two elements were
+            // swapped by inner loop, then break
+            if (!swapped)
+                break;
+        }
+    }
+
     public static void insertionSort(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
@@ -184,6 +208,7 @@ public class ArraySorting {
             merge(arr, l, m, r);
         }
     }
+
 
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
