@@ -1,9 +1,7 @@
 package com.practice.tree;
 
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class BinaryTree {
     Node root;
@@ -50,8 +48,33 @@ public class BinaryTree {
 
         for (Map.Entry<Integer, Node> entry :
                 map.entrySet()) {
-            System.out.print(entry.getValue().data+" ");
+            System.out.print(entry.getValue().data + " ");
         }
+    }
+
+    /*
+    This method will print vertical Order traversal Of Binary Tree using level order traversal
+     */
+    public static List<Integer> verticalOrderOfBinaryTree(Node root) {
+        Queue<Pair> queue = new ArrayDeque<>();
+        Map<Integer, List<Integer>> map = new TreeMap<>();
+
+        queue.add(new Pair(0, root));
+        while (!queue.isEmpty()) {
+            Pair curr = queue.poll();
+            map.computeIfAbsent(curr.horizontalDistance, K -> new ArrayList<>()).add(curr.node.data);
+
+            if (curr.node.left != null) {
+                queue.add(new Pair(curr.horizontalDistance - 1, curr.node.left));
+            }
+
+            if (curr.node.right != null) {
+                queue.add(new Pair(curr.horizontalDistance + 1, curr.node.right));
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        map.forEach((key, value) -> ans.addAll(value));
+        return ans;
     }
 }
 
