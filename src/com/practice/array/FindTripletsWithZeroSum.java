@@ -12,7 +12,7 @@ public class FindTripletsWithZeroSum {
         System.out.println("triplets =" + triplets);
     }
 
-    //Time Complexity: O(n2). Auxiliary Space: O(n).
+    //Time Complexity: O(n^2). Auxiliary Space: O(n).
     static int findTripletsUsingHashing(int[] arr, int n) {
         int tripletsCount = 0;
         for (int i = 0; i < n - 1; i++) {
