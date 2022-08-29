@@ -7,17 +7,16 @@ public class MathematicsProblems {
         System.out.println("noOfTrailingZerosInFactorial(5) =>" + noOfTrailingZerosInFactorial(5));
         System.out.println("noOfTrailingZerosInFactorial(35) =>" + noOfTrailingZerosInFactorial(35));
 
-        System.out.println("isPalindrome(353) =>" + isPalindrome(353));
+        System.out.println("isPalindrome(353) =>" + isPalindrome(353)); //TRUE
+        System.out.println("isPalindrome(-121) =>" + isPalindrome(-121)); //FALSE
+
         boolean[] isPrime = sieveOfEratosthenes(20);
         for (int i = 0; i < isPrime.length; i++) {
             System.out.println(i + " is prime -> " + isPrime[i]);
         }
 
         System.out.println("gcd of 60,24 is ->" + gcd(24, 60));
-
         System.out.println("Power(3,5) -> " + fastPower(3, 5));
-
-
     }
 
     public static int noOfTrailingZerosInFactorial(int n) {
