@@ -20,7 +20,7 @@ public class StockBuySell {
         return maxProfit;
     }
 
-    // Using simple approach if prica[i]-price[i-1]>0 then do the transacaction
+    // Using simple approach if price[i]-price[i-1]>0 then do the transaction
     static int maxProfitWithMultipleTransactions(int[] price) {
         int profit = 0;
         for (int i = 1; i < price.length; i++) {
