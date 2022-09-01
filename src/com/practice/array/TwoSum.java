@@ -39,7 +39,7 @@ public class TwoSum {
     // whose sum is equal to the given value
     static boolean hasArrayTwoCandidates(
             int[] A,
-            int arr_size, int sum) {
+            int arrSize, int sum) {
         int l, r;
 
         /* Sort the elements */
@@ -48,7 +48,7 @@ public class TwoSum {
         /* Now look for the two candidates
         in the sorted array*/
         l = 0;
-        r = arr_size - 1;
+        r = arrSize - 1;
         while (l < r) {
             if (A[l] + A[r] == sum)
                 return true;
