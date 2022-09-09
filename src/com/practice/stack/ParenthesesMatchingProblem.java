@@ -5,10 +5,12 @@ import java.util.Deque;
 
 public class ParenthesesMatchingProblem {
     public static void main(String[] args) {
-        System.out.println(isParenthesesMatching("[{((()))}]"));
+//        System.out.println(isParenthesesMatching("[{((()))}]"));
+        System.out.println("(( ->" + isParenthesesMatching("(("));
     }
 
     public static boolean isParenthesesMatching(String str) {
+        if (str == null || str.length() <= 1) return false;
         Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < str.length(); i++) {
             char curr = str.charAt(i);
