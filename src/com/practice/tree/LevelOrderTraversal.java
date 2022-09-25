@@ -4,11 +4,11 @@ import java.util.*;
 
 public class LevelOrderTraversal {
 
-    public List<List<Integer>> levelOrder1(Node root) {
+    public List<List<Integer>> levelOrder1(TreeNode root) {
 
         List<List<Integer>> res = new ArrayList<>();
 
-        ArrayDeque<Node> dq = new ArrayDeque<>();
+        ArrayDeque<TreeNode> dq = new ArrayDeque<>();
 
         if (root != null)
             dq.addLast(root);
@@ -19,7 +19,7 @@ public class LevelOrderTraversal {
             List<Integer> curr = new ArrayList<>();
 
             for (int i = 0; i < level; i++) {
-                Node n = dq.removeFirst();
+                TreeNode n = dq.removeFirst();
                 curr.add(n.data);
 
                 if (n.left != null) {
@@ -39,7 +39,7 @@ public class LevelOrderTraversal {
 
     }
 
-    public static List<List<Integer>> levelOrder(Node root) {
+    public static List<List<Integer>> levelOrder(TreeNode root) {
         Map<Integer, List<Integer>> map = new TreeMap<>();
         if (root == null) {
             return Collections.emptyList();
@@ -60,11 +60,11 @@ public class LevelOrderTraversal {
     }
 
     public static void main(String[] args) {
-        Node root = new Node(3);
-        root.left = new Node(9);
-        root.right = new Node(20);
-        root.right.left = new Node(15);
-        root.right.right = new Node(7);
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
         List<List<Integer>> res = levelOrder(root);
         res.forEach(integers -> {
             integers.forEach(integer -> System.out.print(integer + " "));

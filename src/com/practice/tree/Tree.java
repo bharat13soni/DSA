@@ -8,7 +8,7 @@ public class Tree {
 	public static void main(String[] args) {
 		sc = new Scanner(System.in);
 		
-		Node root = createTree();
+		TreeNode root = createTree();
 		inOrder(root);
 		System.out.println();
 		preOrder(root);
@@ -17,15 +17,15 @@ public class Tree {
 		System.out.println();
 	}
 	
-	static Node createTree() {
+	static TreeNode createTree() {
 		
-		Node root = null;
+		TreeNode root = null;
 		System.out.println("Enter data: ");
 		int data = sc.nextInt();
 		
 		if(data == -1) return null;
 		
-		root = new Node(data);
+		root = new TreeNode(data);
 		
 		System.out.println("Enter left for " + data);
 		root.left = createTree();
@@ -36,7 +36,7 @@ public class Tree {
 		return root;
 	}
 	
-	static void inOrder(Node root) {
+	static void inOrder(TreeNode root) {
 		if(root == null) return;
 		
 		inOrder(root.left);
@@ -44,14 +44,14 @@ public class Tree {
 		inOrder(root.right);
 	}
 	
-	static void preOrder(Node root) {
+	static void preOrder(TreeNode root) {
 		if(root == null) return;
 		System.out.print(root.data+" ");
 		preOrder(root.left);
 		preOrder(root.right);
 	}
 	
-	static void postOrder(Node root) {
+	static void postOrder(TreeNode root) {
 		if(root == null) return;
 		
 		postOrder(root.left);

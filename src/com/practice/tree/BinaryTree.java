@@ -1,10 +1,9 @@
 package com.practice.tree;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class BinaryTree {
-    Node root;
+    TreeNode root;
 
     public BinaryTree() {
         root = null;
@@ -12,19 +11,19 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        tree.root = new Node(1);
-        tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
-        tree.root.left.right = new Node(4);
-        tree.root.left.right.right = new Node(5);
-        tree.root.left.right.right.right = new Node(6);
+        tree.root = new TreeNode(1);
+        tree.root.left = new TreeNode(2);
+        tree.root.right = new TreeNode(3);
+        tree.root.left.right = new TreeNode(4);
+        tree.root.left.right.right = new TreeNode(5);
+        tree.root.left.right.right.right = new TreeNode(6);
         System.out.println("Following are nodes in top view of Binary Tree");
         tree.topView(tree.root);
     }
 
-    private void topView(Node root) {
+    private void topView(TreeNode root) {
         Queue<Pair> queue = new LinkedList<>();
-        Map<Integer, Node> map = new TreeMap<>();
+        Map<Integer, TreeNode> map = new TreeMap<>();
         if (root == null) {
             return;
         }
@@ -46,7 +45,7 @@ public class BinaryTree {
             }
         }
 
-        for (Map.Entry<Integer, Node> entry :
+        for (Map.Entry<Integer, TreeNode> entry :
                 map.entrySet()) {
             System.out.print(entry.getValue().data + " ");
         }
@@ -55,7 +54,7 @@ public class BinaryTree {
     /*
     This method will print vertical Order traversal Of Binary Tree using level order traversal
      */
-    public static List<Integer> verticalOrderOfBinaryTree(Node root) {
+    public static List<Integer> verticalOrderOfBinaryTree(TreeNode root) {
         Queue<Pair> queue = new ArrayDeque<>();
         Map<Integer, List<Integer>> map = new TreeMap<>();
 
@@ -80,9 +79,9 @@ public class BinaryTree {
 
 class Pair {
     int horizontalDistance;
-    Node node;
+    TreeNode node;
 
-    public Pair(int horizontalDistance, Node node) {
+    public Pair(int horizontalDistance, TreeNode node) {
         this.horizontalDistance = horizontalDistance;
         this.node = node;
     }

@@ -29,13 +29,23 @@ public class BoyerMooreMajorityVotingAlgorithm {
                 + majority);
     }
 
-    // Function to find majority element
+
+    /**
+     * This is a two-step process:
+     * <p>
+     * 1)The first step gives the element that may be the majority element in the array.
+     * If there is a majority element in an array, then this step will definitely return majority element,
+     * otherwise, it will return candidate for majority element.
+     * <p>
+     * Check if the element obtained from the above step is the majority element.
+     * This step is necessary as there might be no majority element.
+     */
     public static int findMajority(int[] nums) {
         int count = 1;
         int ansIndex = 0;
 
         // Finding majority candidate
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[ansIndex])
                 count++;
             else

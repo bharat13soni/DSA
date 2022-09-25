@@ -4,13 +4,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class InvertTree {
-    public Node invertTree(Node root) {
+    public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return root;
         }
         /* do the subtrees */
-        Node left = invertTree(root.left);
-        Node right = invertTree(root.right);
+        TreeNode left = invertTree(root.left);
+        TreeNode right = invertTree(root.right);
 
         /* swap the left and right pointers */
         root.left = right;
@@ -19,22 +19,22 @@ public class InvertTree {
         return root;
     }
 
-    public static void mirror(Node root) {
+    public static void mirror(TreeNode root) {
         if (root == null)
             return;
 
-        Queue<Node> q = new LinkedList<>();
+        Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
 
         // Do BFS. While doing BFS, keep swapping
         // left and right children
         while (q.size() > 0) {
             // pop top node from queue
-            Node curr = q.peek();
+            TreeNode curr = q.peek();
             q.remove();
 
             // swap left child with right child
-            Node temp = curr.left;
+            TreeNode temp = curr.left;
             curr.left = curr.right;
             curr.right = temp;
 

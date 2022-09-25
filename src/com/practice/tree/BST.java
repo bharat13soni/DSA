@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BST {
-    public static Node deleteNode(Node root, int key) {
+    public static TreeNode deleteNode(TreeNode root, int key) {
         if (root == null)
             return null;
         if (key < root.data) {
@@ -24,7 +24,7 @@ public class BST {
         return root;
     }
 
-    private static int minValue(Node root) {
+    private static int minValue(TreeNode root) {
         int minVal = root.data;
         while (root.left != null) {
             minVal = root.left.data;
@@ -33,11 +33,11 @@ public class BST {
         return minVal;
     }
 
-    public static boolean isBSTUsingRange(Node root) {
-        return isBSTUtil(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
+    public static boolean isBSTUsingRange(TreeNode root) {
+        return isBSTUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static boolean isBSTUtil(Node root, int maxValue, int minValue) {
+    private static boolean isBSTUtil(TreeNode root, int minValue, int maxValue) {
         if (root == null)
             return true;
         if (root.data < minValue || root.data > maxValue)
@@ -50,9 +50,9 @@ public class BST {
     /*
     For BST inorder traversal should be sorted
      */
-    Node prev;
+    TreeNode prev;
 
-    public boolean isBSTUsingInOrderTraversal(Node root) {
+    public boolean isBSTUsingInOrderTraversal(TreeNode root) {
         if (root != null) {
             if (!isBSTUsingInOrderTraversal(root.left))
                 return false;
@@ -70,7 +70,7 @@ public class BST {
     Floor of a key in BST
     The Largest value in BST which is smaller than key
      */
-    public static int floor(Node root, int key) {
+    public static int floor(TreeNode root, int key) {
         int ans = Integer.MAX_VALUE;
         while (root != null) {
             if (root.data == key) {
@@ -86,7 +86,7 @@ public class BST {
         return ans;
     }
 
-    public static int ceil(Node root, int key) {
+    public static int ceil(TreeNode root, int key) {
         int ans = Integer.MIN_VALUE;
         while (root != null) {
             if (root.data == key) {
@@ -105,12 +105,12 @@ public class BST {
     /*
     Find pair with given target sum in BST
      */
-    public static int isPairPresent(Node root, int target) {
+    public static int isPairPresent(TreeNode root, int target) {
         Set<Integer> set = new HashSet<>();
         return util(root, target, set) ? 1 : 0;
     }
 
-    private static boolean util(Node root, int sum, Set<Integer> set) {
+    private static boolean util(TreeNode root, int sum, Set<Integer> set) {
         if (root == null)
             return false;
         if (util(root.left, sum, set)) {

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class LeftView {
     // traverse nodes in pre-order way
-    public static void leftViewUtil(Node root, int level, HashMap<Integer, Integer> map) {
+    public static void leftViewUtil(TreeNode root, int level, HashMap<Integer, Integer> map) {
         if (root == null) {
             return;
         }
@@ -18,7 +18,7 @@ public class LeftView {
     }
 
     // to print left view of binary tree
-    public static void leftView(Node root) {
+    public static void leftView(TreeNode root) {
         // create an empty HashMap to store first node of each level
         HashMap<Integer, Integer> map = new HashMap<>();
         // traverse the tree and find out the first nodes of each level
@@ -30,14 +30,14 @@ public class LeftView {
     }
 
     public static void main(String[] args) {
-        Node root = new Node(4);
-        root.left = new Node(2);
-        root.right = new Node(6);
-        root.left.left = new Node(1);
-        root.left.right = new Node(3);
-        root.right.left = new Node(5);
-        root.right.right = new Node(7);
-        root.right.left.left = new Node(9);
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+        root.right.left = new TreeNode(5);
+        root.right.right = new TreeNode(7);
+        root.right.left.left = new TreeNode(9);
         leftView(root);
         //output -> 4,2,1,9
     }

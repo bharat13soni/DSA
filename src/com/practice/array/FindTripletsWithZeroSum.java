@@ -1,15 +1,46 @@
 package com.practice.array;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class FindTripletsWithZeroSum {
     public static void main(String[] args) {
 //        int[] arr = {0, -1, 2, -3, 1};
         int[] arr = {4, -16, 43, 4, 7, -36, 18};
-        int triplets = findTripletsUsingHashing(arr, arr.length);
-        System.out.println("triplets =" + triplets);
+//        int triplets = findTripletsUsingHashing(arr, arr.length);
+//        System.out.println("res ->" + threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+//        System.out.println("res ->" + threeSum(new int[]{0,0,0,0}));
+        System.out.println("res ->" + threeSum(new int[]{3,0,-2,-1,1,2}));
+//        System.out.println("triplets =" + triplets);
+    }
+
+    public static List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        Set<List<Integer>> threeSum = new HashSet<>();
+        
+        for(int i = 0; i < nums.length - 2; i++){
+            int j = i + 1;
+            int k = nums.length - 1;
+            while(j < k){
+                int sum = nums[i] + nums[j] + nums[k];
+                
+                if(sum == 0){
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(nums[i]);
+                    temp.add(nums[j]);
+                    temp.add(nums[k]);
+                    threeSum.add(temp);
+                    j++;
+                    k--;
+                }else if(sum > 0){
+                    k--;
+                }else{
+                    j++;
+                }
+            }
+        }
+        
+        return new ArrayList<>(threeSum);
     }
 
     //Time Complexity: O(n^2). Auxiliary Space: O(n).

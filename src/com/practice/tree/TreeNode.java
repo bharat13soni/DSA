@@ -1,10 +1,10 @@
 package com.practice.tree;
 
-public class Node {
-    Node left, right;
+public class TreeNode {
+    TreeNode left, right;
     int data,height;
 
-    public Node(int data) {
+    public TreeNode(int data) {
         this.data = data;
     }
 }

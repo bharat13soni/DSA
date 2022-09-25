@@ -3,10 +3,10 @@ package com.practice.tree;
 
 public class AVLTree {
 
-    Node root;
+    TreeNode root;
 
     // A utility function to get the height of the tree
-    int height(Node N) {
+    int height(TreeNode N) {
         if (N == null)
             return 0;
 
@@ -20,9 +20,9 @@ public class AVLTree {
 
     // A utility function to right rotate subtree rooted with y
     // See the diagram given above.
-    Node rightRotate(Node y) {
-        Node x = y.left;
-        Node T2 = x.right;
+    TreeNode rightRotate(TreeNode y) {
+        TreeNode x = y.left;
+        TreeNode T2 = x.right;
 
         // Perform rotation
         x.right = y;
@@ -38,9 +38,9 @@ public class AVLTree {
 
     // A utility function to left rotate subtree rooted with x
     // See the diagram given above.
-    Node leftRotate(Node x) {
-        Node y = x.right;
-        Node T2 = y.left;
+    TreeNode leftRotate(TreeNode x) {
+        TreeNode y = x.right;
+        TreeNode T2 = y.left;
 
         // Perform rotation
         y.left = x;
@@ -55,18 +55,18 @@ public class AVLTree {
     }
 
     // Get Balance factor of node N
-    int getBalance(Node N) {
+    int getBalance(TreeNode N) {
         if (N == null)
             return 0;
 
         return height(N.left) - height(N.right);
     }
 
-    Node insert(Node node, int key) {
+    TreeNode insert(TreeNode node, int key) {
 
         /* 1.  Perform the normal BST insertion */
         if (node == null)
-            return (new Node(key));
+            return (new TreeNode(key));
 
         if (key < node.data)
             node.left = insert(node.left, key);
@@ -112,7 +112,7 @@ public class AVLTree {
     // A utility function to print preorder traversal
     // of the tree.
     // The function also prints height of every node
-    void preOrder(Node node) {
+    void preOrder(TreeNode node) {
         if (node != null) {
             System.out.print(node.data + " ");
             preOrder(node.left);

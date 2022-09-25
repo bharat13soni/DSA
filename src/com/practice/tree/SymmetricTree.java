@@ -1,7 +1,7 @@
 package com.practice.tree;
 
 public class SymmetricTree {
-    boolean isMirror(Node node1, Node node2)
+    boolean isMirror(TreeNode node1, TreeNode node2)
     {
         // if both trees are empty, then they are mirror image
         if (node1 == null && node2 == null)
@@ -26,7 +26,7 @@ public class SymmetricTree {
 
     // returns true if the tree is symmetric i.e
     // mirror image of itself
-    boolean isSymmetric(Node root)
+    boolean isSymmetric(TreeNode root)
     {
         // check if tree is mirror of itself
         return isMirror(root, root);

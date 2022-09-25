@@ -4,15 +4,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PathSum {
-    public static boolean hasPathSumIterative(Node root, int targetSum) {
+    public static boolean hasPathSumIterative(TreeNode root, int targetSum) {
         if (root == null) return false;
 
-        Queue<GenericPair<Node, Integer>> q = new LinkedList<>();
+        Queue<GenericPair<TreeNode, Integer>> q = new LinkedList<>();
         q.offer(new GenericPair<>(root, targetSum - root.data));
 
         while (!q.isEmpty()) {
-            GenericPair<Node, Integer> curr = q.poll();
-            Node node = curr.getLeft();
+            GenericPair<TreeNode, Integer> curr = q.poll();
+            TreeNode node = curr.getLeft();
             Integer sum = curr.getRight();
             if (sum == 0 && node.left == null && node.right == null)
                 return true;
@@ -26,7 +26,7 @@ public class PathSum {
         return false;
     }
 
-    public static boolean hasPathSum(Node root, int targetSum) {
+    public static boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null)
             return false;
 
@@ -46,12 +46,12 @@ public class PathSum {
           / \   /
          3   5 2
         */
-        Node root = new Node(10);
-        root.left = new Node(8);
-        root.right = new Node(2);
-        root.left.left = new Node(3);
-        root.left.right = new Node(5);
-        root.right.left = new Node(2);
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(8);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(2);
 
         if (hasPathSum(root, sum))
             System.out.println(
