@@ -1,8 +1,14 @@
 package com.practice.array;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
+/**
+ * Given an integer array nums, return all the triplets
+ * [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k,
+ * and nums[i] + nums[j] + nums[k] == 0.
+ * <p>
+ * Notice that the solution set must not contain duplicate triplets.
+ */
 public class FindTripletsWithZeroSum {
     public static void main(String[] args) {
 //        int[] arr = {0, -1, 2, -3, 1};
@@ -10,21 +16,21 @@ public class FindTripletsWithZeroSum {
 //        int triplets = findTripletsUsingHashing(arr, arr.length);
 //        System.out.println("res ->" + threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
 //        System.out.println("res ->" + threeSum(new int[]{0,0,0,0}));
-        System.out.println("res ->" + threeSum(new int[]{3,0,-2,-1,1,2}));
+        System.out.println("res ->" + threeSum(new int[]{3, 0, -2, -1, 1, 2}));
 //        System.out.println("triplets =" + triplets);
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         Set<List<Integer>> threeSum = new HashSet<>();
-        
-        for(int i = 0; i < nums.length - 2; i++){
+
+        for (int i = 0; i < nums.length - 2; i++) {
             int j = i + 1;
             int k = nums.length - 1;
-            while(j < k){
+            while (j < k) {
                 int sum = nums[i] + nums[j] + nums[k];
-                
-                if(sum == 0){
+
+                if (sum == 0) {
                     List<Integer> temp = new ArrayList<>();
                     temp.add(nums[i]);
                     temp.add(nums[j]);
@@ -32,14 +38,14 @@ public class FindTripletsWithZeroSum {
                     threeSum.add(temp);
                     j++;
                     k--;
-                }else if(sum > 0){
+                } else if (sum > 0) {
                     k--;
-                }else{
+                } else {
                     j++;
                 }
             }
         }
-        
+
         return new ArrayList<>(threeSum);
     }
 

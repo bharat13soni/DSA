@@ -29,7 +29,7 @@ public class TwoSum {
 
     /*
     Time Complexity: Depends on what sorting algorithm we use.
-    If Merge Sort or Heap Sort is used then (-)(nlogn) in the worst case.
+    If Merge Sort or Heap Sort is used then O(nlogn) in the worst case.
     If Quick Sort is used then O(n^2) in the worst case.
     Auxiliary Space: This too depends on sorting algorithm.
     The auxiliary space is O(n) for merge sort and O(1) for Heap Sort.

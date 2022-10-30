@@ -37,7 +37,7 @@ public class BoyerMooreMajorityVotingAlgorithm {
      * If there is a majority element in an array, then this step will definitely return majority element,
      * otherwise, it will return candidate for majority element.
      * <p>
-     * Check if the element obtained from the above step is the majority element.
+     * 2)Check if the element obtained from the above step is the majority element.
      * This step is necessary as there might be no majority element.
      */
     public static int findMajority(int[] nums) {
