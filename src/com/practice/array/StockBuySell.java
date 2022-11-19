@@ -5,7 +5,7 @@ public class StockBuySell {
         int[] price = {100, 180, 260, 310,
                 40, 535, 695};
 
-//        System.out.print(maxProfit(price));
+        System.out.print(maxProfit(price));
         System.out.print(maxProfitWithMultipleTransactions(price));
     }
 
