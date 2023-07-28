@@ -40,6 +40,24 @@ public class RotateArray {
 //        arr[i1] = arr[i1] - arr[i2];
     }
 
+    /**
+     * Approach: The approach is simple yet optimized.
+     * The idea is to reverse the array three times.
+     * Time Complexity: O(N).
+     * Auxiliary Space: O(1).
+     *
+     * // Reduce the number of rotations
+     *    k = k % n
+     *
+     *    // Reverse the first part of the array
+     *    reverse(arr, arr + n – k)
+     *
+     *    // Reverse the second part of the array
+     *    reverse(arr + n – k, arr + n)
+     *
+     *    // Reverse the entire array
+     *    reverse(arr, arr + n)
+     */
     static void rotateArrayRightByK(int[] nums, int k) {
         if (nums.length == 0 || nums.length == 1 || nums.length == k) {
             return;
