@@ -1,6 +1,6 @@
 package com.practice;
 
-public class Solution {
+public class Solution1 {
     public static int wiggleMaxLength(int[] nums) {
         if (nums == null || nums.length == 0)
             return 0;

@@ -20,12 +20,14 @@ public class SingleNumber {
         for (int i = 0; i < len; i++) {
             isTwice = false;
             for (int j = 0; j < len; j++) {
-                if (isTwice) break;
-                if (i != j)
-                    if (numbers[i] == numbers[j])
-                        isTwice = true;
+                if (i != j && (numbers[i] == numbers[j])) {
+                    isTwice = true;
+                    break;
+                }
             }
-            if (!isTwice) return numbers[i];
+            if (!isTwice) {
+                return numbers[i];
+            }
         }
         return numbers[len - 1];
     }
@@ -43,7 +45,6 @@ public class SingleNumber {
         // -----------------------------------------------------------
         Arrays.sort(numbers);
         int len = numbers.length;
-        int result = numbers[len - 1];
         int i = 0;
         while (i < len - 2) {
             if (numbers[i] == numbers[i + 1]) {
@@ -71,7 +72,7 @@ public class SingleNumber {
         }
 
         for (Map.Entry<Integer, Boolean> entry : map.entrySet()) {
-            if (entry.getValue()) {
+            if (Boolean.TRUE.equals(entry.getValue())) {
                 return entry.getKey();
             }
         }

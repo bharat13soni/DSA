@@ -51,10 +51,7 @@ public class BinarySearch {
             low = high;
             //check that 2*h doesn't exceed array
             //length to prevent ArrayOutOfBoundException
-            if (2 * high < arr.length - 1)
-                high = 2 * high;
-            else
-                high = arr.length - 1;
+            high = Math.min(2 * high, arr.length - 1);
         }
         return binarySearchRecursive(arr, low, high, key);
     }

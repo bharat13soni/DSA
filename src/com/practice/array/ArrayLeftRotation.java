@@ -35,7 +35,7 @@ public class ArrayLeftRotation {
      * Third Steps:
      * => Copy the elements of the temp[] array into the original array.
      * => arr[] = temp[] So arr[] = [3, 4, 5, 6, 7, 1, 2]
-     *
+     * <p>
      * Time complexity: O(N)
      * Auxiliary Space: O(N)
      */
@@ -71,25 +71,25 @@ public class ArrayLeftRotation {
 
     /**
      * Approach 2 (Rotate one by one): This problem can be solved using the below idea:
-     *
+     * <p>
      * At each iteration, shift the elements by one position to the left circularly (i.e., first element becomes the last).
      * Perform this operation d times to rotate the elements to the left by d position.
-     *
+     * <p>
      * Let us take arr[] = [1, 2, 3, 4, 5, 6, 7], d = 2.
-     *
+     * <p>
      * First Step:
-     *         => Rotate to left by one position.
-     *         => arr[] = {2, 3, 4, 5, 6, 7, 1}
-     *
+     * => Rotate to left by one position.
+     * => arr[] = {2, 3, 4, 5, 6, 7, 1}
+     * <p>
      * Second Step:
-     *         => Rotate again to left by one position
-     *         => arr[] = {3, 4, 5, 6, 7, 1, 2}
-     *
+     * => Rotate again to left by one position
+     * => arr[] = {3, 4, 5, 6, 7, 1, 2}
+     * <p>
      * Rotation is done by 2 times.
      * So the array becomes arr[] = {3, 4, 5, 6, 7, 1, 2}
-     *
+     * <p>
      * Follow the steps below to solve the given problem.
-     *
+     * <p>
      * Rotate the array to left by one position. For that do the following:
      * Store the first element of the array in a temporary variable.
      * Shift the rest of the elements in the original array by one place.
@@ -99,8 +99,7 @@ public class ArrayLeftRotation {
      * Auxiliary Space: O(1)
      */
 
-    public static void rotate(int[] arr, int d, int n)
-    {
+    public static void rotate(int[] arr, int d, int n) {
         int p = 1;
         while (p <= d) {
             int last = arr[0];
@@ -121,7 +120,7 @@ public class ArrayLeftRotation {
      * Time complexity: The time complexity of the code is O(d*n), where d is the number of rotations and n is the size of the deque.
      * The auxiliary space is O(n), where n is the size of the deque.
      */
-    public static void rotateUsingDeque(int [] inp ,int d){
+    public static void rotateUsingDeque(int[] inp, int d) {
         Deque<Integer> deq = new ArrayDeque<>();
         for (int i : inp) {
             deq.add(i);
@@ -138,7 +137,7 @@ public class ArrayLeftRotation {
     public static void main(String[] args) {
         int[] inp = {1, 2, 3, 4, 5, 6, 7};
         int d = 2;
-        rotateUsingDeque(inp,d);
+        rotateUsingDeque(inp, d);
     }
 
 }
